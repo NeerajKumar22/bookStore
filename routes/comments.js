@@ -5,14 +5,14 @@ var commentController = require ("../controller/commentController");
 
 // Routes for CRUD operation on comments
 
-router.post("/", commentController.newComment);
+router.post("/:bookId/comments", commentController.newComment);
 
-router.get("/", commentController.findAll);
+router.get("/:bookId/comments", commentController.findAll);
 
-router.get("/:id", commentController.findOne);
+router.get("/:bookId/comments/:id", commentController.findOne);
 
-router.put("/:id", commentController.commentUpdate);
+router.put("/:bookId/comments/:id", commentController.commentUpdate);
 
-router.delete("/:id", commentController.commentDelete);
+router.delete("/:bookId/comments/:id", commentController.commentDelete);
 
 module.exports = router;

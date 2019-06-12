@@ -3,6 +3,8 @@ var Comment = require("../models/Comment");
 // Router for Creater New Comment
 
 exports.newComment = function(req, res, next){
+    let bookId = req.params.bookId;
+    req.body.book = bookId;
     Comment.create(req.body, (err, comment) => {
         if(err) return next(err);
         res.json({comment : comment});

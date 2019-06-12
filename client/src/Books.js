@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import Login from "./Login";
 
-export default class Books extends Component {
+class Books extends Component {
     state = {
         books: []
     }
@@ -12,13 +13,17 @@ export default class Books extends Component {
     
     render(){
         return (
-            <ul>
-                {
-                    this.state.books.map(book => (
-                        <li>{book.title}</li>
-                    ))
-                }
-            </ul>
+            <div>
+                <ul>
+                    {
+                        this.state.books.map(book => (
+                            <li>{book.title}</li>
+                        ))
+                    }
+                </ul>
+            </div>
         )
     }
 }
+
+export default Books;
