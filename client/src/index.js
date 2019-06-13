@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Books from './Books';
+import Login from "./Login";
 import {BrowserRouter, Route} from 'react-router-dom';
 
 function Main(){
@@ -10,6 +11,7 @@ function Main(){
         <BrowserRouter>
             <Route exact path="/" component={App} />
             <Route path="/books" component={Books} />
+            <Route path="/login" component={Login} />
         </BrowserRouter>
     );
 };
