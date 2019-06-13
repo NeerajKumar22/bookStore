@@ -1,22 +1,27 @@
 import React from "react";
 import "bulma/css/bulma.css";
 import axios from "axios";
+import {Link} from "react-router-dom";
+import Books from "./Books";
 import setAuthToken from "./utils/setAuthToken";
 
 
 class Login extends React.Component{
-    state = {
-        email:"neeraj@gmail.com",
-        password: "123456",
-        auth: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:"neeraj@gmail.com",
+      password: "123456",
+      auth: false
     }
-    componentDidMount(){
-        if(localStorage["token-books"]){
-            axios.post("/users/login", {email: this.state.email, password: this.state.password}).then(({data}) => {
-                this.setState({auth: true});
-            })
-        }
-    }
+  }
+  componentDidMount(){
+      if(localStorage["token-books"]){
+          axios.post("/users/login", {email: this.state.email, password: this.state.password}).then(({data}) => {
+              this.setState({auth: true});
+          })
+      }
+  }
 
     handleChange = ({target: {name, value}}) => {
         this.setState({
@@ -34,20 +39,42 @@ class Login extends React.Component{
                 setAuthToken();
             }
         });
-        axios.get("/books").then(res => console.log(res))
+        
+      axios.get("/books").then(res => console.log(res))
     }
 
-    render(){
-        const {email, password} = this.state;
-        return (
-            this.state.auth ? <Redirect to ="/books" /> : 
-            <div className="container">
-                <input type= "text" className="input" value={email} placeholder = "email" name ="email" onChange={this.handleChange} />
-                <input type = "password" className = "input" value = {password} palaceholder="password" name = "password" onChange = {this.handleChange} />
-                <button className="button" onClick = {this.handleSubmit}>Submit</button>
+   
+       
+    render() {
+      var { email, password } = this.state;
+      return (
+          <div className="container">
+            <h1>WELCOME TO THE BOOK STORE</h1>
+            <div>
+              <h3>If already have account</h3>
+              <h3>Please Login Here</h3>
+              <input type= "text" className="input" value={email} placeholder = "email" name ="email" onChange={this.handleChange} />
+              <input type = "password" className = "input" value = {password} palaceholder="password" name = "password" onChange = {this.handleChange} />
+              <button className="button" onClick = {this.handleSubmit}>Submit</button>
             </div>
-        );
+            <div>
+              <h3>If don't have an anccount</h3>
+              <h3>Please Register Here</h3>
+              <input type= "text" className="input" value={email} placeholder = "email" name ="email" onChange={this.handleChange} />
+              <input type = "password" className = "input" value = {password} palaceholder="password" name = "password" onChange = {this.handleChange} />
+              <button className="button" onClick = {this.handleSubmit}>Submit</button>
+            </div>
+          </div>
+       
+      );
     }
+        
+          
+     
+            
+              
+         
+    
 }
 
 export default Login;
