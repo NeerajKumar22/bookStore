@@ -7,8 +7,7 @@ class Books extends Component {
         books: []
     }
     componentDidMount() {
-        console.log('called')
-        Axios.get('/books').then(({data: {books}}) => this.setState({books}))
+        Axios.get('/books').then(({data: {books}}) => this.setState({books: books}))
     }
     
     render(){
@@ -17,7 +16,7 @@ class Books extends Component {
                 <ul>
                     {
                         this.state.books.map(book => (
-                            <li>{book.title}</li>
+                            <a href = {book.title} ><li>{book.title}</li></a>
                         ))
                     }
                 </ul>
