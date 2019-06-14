@@ -1,5 +1,7 @@
 import React from "react";
 import "bulma/css/bulma.css";
+import "./App.css";
+import './index.css';
 import axios from "axios";
 import {Link} from "react-router-dom";
 import Books from "./Books";
@@ -10,8 +12,8 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      email:"neeraj@gmail.com",
-      password: "123456",
+      email:[],
+      password: [],
       auth: false
     }
   }
@@ -42,13 +44,12 @@ class Login extends React.Component{
         
       axios.get("/books").then(res => console.log(res))
     }
-
-   
-       
+  
     render() {
       var { email, password } = this.state;
       return (
           <div className="container">
+            <button>X</button>
             <h1>WELCOME TO THE BOOK STORE</h1>
             <div>
               <h3>If already have account</h3>
@@ -57,24 +58,10 @@ class Login extends React.Component{
               <input type = "password" className = "input" value = {password} palaceholder="password" name = "password" onChange = {this.handleChange} />
               <button className="button" onClick = {this.handleSubmit}>Submit</button>
             </div>
-            <div>
-              <h3>If don't have an anccount</h3>
-              <h3>Please Register Here</h3>
-              <input type= "text" className="input" value={email} placeholder = "email" name ="email" onChange={this.handleChange} />
-              <input type = "password" className = "input" value = {password} palaceholder="password" name = "password" onChange = {this.handleChange} />
-              <button className="button" onClick = {this.handleSubmit}>Submit</button>
-            </div>
           </div>
        
       );
-    }
-        
-          
-     
-            
-              
-         
-    
+    }  
 }
 
 export default Login;
