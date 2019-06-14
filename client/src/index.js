@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bulma/css/bulma.css';
+import "./App.css";
 import './index.css';
 import App from './App';
 import Books from './Books';
+import BookDetails from './BookDetails';
 import Login from "./Login";
+import Register from "./Register";
 import {BrowserRouter, Route} from 'react-router-dom';
 
 function Main(){
     return (
         <BrowserRouter>
             <Route exact path="/" component={App} />
-            <Route path="/books" component={Books} />
-            <Route path="/login" component={Login} />
+            <Route exact path="/books" component={Books} />
+            <Route path="/books/:id" component={BookDetails} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
         </BrowserRouter>
     );
 };
