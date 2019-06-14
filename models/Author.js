@@ -3,14 +3,14 @@ var Schema = mongoose.Schema;
 
 var authorSchema = new Schema({
     name : {
-        type : "String",
+        type : String,
         required : [
             true,
             "Name is required",
         ]
     },
     email : {
-        type : "String",
+        type : String,
         required : [
             true,
             "Email is required",
