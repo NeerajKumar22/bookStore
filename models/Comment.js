@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var commentSchema = new Schema({
     text : {
-        type : "String",
+        type : String,
         required : [
             true,
             "Comment is required"
