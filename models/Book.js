@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var bookSchema = new Schema({
     title : {
-        type : "String",
+        type : String,
         required : [
             true,
             "Title is required",
@@ -12,11 +12,11 @@ var bookSchema = new Schema({
     },
 
     image : {
-        type : "String"
+        type : String
     },
 
     language : {
-        type : "String",
+        type : String,
         required : [
             true,
             "Language is required",
@@ -28,19 +28,28 @@ var bookSchema = new Schema({
         required : true,
     },
 
-    author : [
+    author : 
         {
-            type : Schema.Types.ObjectId, ref : "Author"
+            type : String
         }
-    ],
+    ,
+
     
-    publisher:{
-        type: "String",
-        required: [
+    publisher : {
+        type : String,
+        required : [
             true,
             "Publisher is required"
         ]
     },
+
+    description : {
+        type : String,
+        required : [
+            true,
+            "Description is required",
+        ]
+    }
 
 }, {timestamps: true});
 
