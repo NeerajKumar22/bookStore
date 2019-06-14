@@ -1,33 +1,104 @@
-.App {
+/* CSS for Dashboard page */
+
+.mainImage{
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  width: 500px;
+  margin: 100px;
+}
+
+.mainHeading{
   text-align: center;
+  font-size: 30px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.dashboardBtn{
+  display: flex;
+  border-radius: 5%;
+  margin: 50px;
+  justify-content: space-around;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* CSS for books page */
+
+a{
+  color: black;
+}
+
+.navbar{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px;
+}
+.logoutBtn{
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.container{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.toggleBtn ul{
+  width: 100%;
+  display: flex;
+  border: 1px solid;
+  padding: 10px;
+  justify-content: space-around;
+
+}
+
+.welcomeTxt{
+  text-align: center;
+  padding: 20px;
+  font-size:25px;
+}
+
+.bookList{
+  display: flex;
+  border: 1px solid ;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.bookInfo{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.bookInfo h2{
+  font-size: 20px;
+  color: blue;
+}
+
+.bookYear{
+  display: flex;
+}
+.bookYear h4{
+  margin-right: 10px;
+}
+
+
+.btnSelector{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  transform:translate(110%, 0)
 }
 
-.App-link {
-  color: #61dafb;
+.btnSelector span{
+  border: 1px solid;
+  padding: 5px 12px;
+  border-radius: 50%;
+  background: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnSelector span:first-child,
+.btnSelector span:last-child{
+  visibility: hidden;
 }
